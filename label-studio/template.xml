@@ -1,0 +1,20 @@
+<View>
+    <Header name="text_only_to_show" value="$text"/>
+    <Video name="video" value="$video"/>
+
+
+    <Choices name="choices" toName="text" choice="single">
+      <Choice alias="-2" value="Very Negative"/>
+      <Choice alias="-1" value="Negative"/>
+      <Choice alias="0" value="Neutral"/>
+      <Choice alias="1" value="Positive"/>
+      <Choice alias="2" value="Very Positive"/>
+    </Choices>
+  
+
+    <View style="display: flex;">
+      <Text name="movie_id" value="$movie_id" saveTextResult="yes"/>
+      <Text name="clip_id" value="$clip_id" saveTextResult="yes"/>
+      <Text name="text" value="$text" saveTextResult="yes"/>
+    </View>
+</View>
