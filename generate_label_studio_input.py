@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 from glob import glob
-from settings import DATA_DIR, LABELSTUDIO_DIR
+from settings import DATA_DIR, LABELSTUDIO_DIR, BASE_DIR
 
 
 def save_input_file(movie_id, clips, subtitles, MOVIE_BASE_DIR):
@@ -9,7 +9,7 @@ def save_input_file(movie_id, clips, subtitles, MOVIE_BASE_DIR):
     input_dict = {"video": clip_paths, "text": subtitles, "clip_id": clip_ids}
     input_df = pd.DataFrame(input_dict)
     input_df["movie_id"] = movie_id
-    input_df.to_csv(MOVIE_BASE_DIR / "input.csv", index=False)
+    input_df.to_csv(MOVIE_BASE_DIR / "label_studio_input.csv", index=False)
     return input_df
 
 
@@ -25,8 +25,9 @@ for i, MOVIE_BASE_DIR in enumerate(movie_paths):
     movie_id = MOVIE_BASE_DIR.name
     CLIPS_DIR = MOVIE_BASE_DIR / "clips"
     clips = glob(str(CLIPS_DIR / "*.mkv"))
+    # To get abs path, remove relative_to
     clips = list(
-        map(lambda x: (int(x.rsplit("/")[-1].rsplit(".")[0].split("_")[1]), x), clips)
+        map(lambda x: (int(x.rsplit("/")[-1].rsplit(".")[0].split("_")[1]), "/static" / Path(x).relative_to(BASE_DIR)), clips)
     )
     clips = sorted(clips)
     with open(MOVIE_BASE_DIR / "texts.txt") as subtitel_file:
@@ -42,4 +43,4 @@ for i, MOVIE_BASE_DIR in enumerate(movie_paths):
 
 if generate_complete_input_file:
     df = pd.concat(movie_dfs, ignore_index=True)
-    df.to_csv(LABELSTUDIO_DIR / "input.csv", index=False)
+    df.to_csv(LABELSTUDIO_DIR / "label_studio_input.csv", index=False)
