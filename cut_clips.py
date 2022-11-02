@@ -65,7 +65,7 @@ for i, movie_path in enumerate(movie_paths):
         movie = VideoFileClip(movie_path)
         duration = movie.duration
         number_of_samples = floor(
-            duration / 60
+            duration / 30
         )  # number of samples ~ length of video in minutes
         if len(subs) < number_of_samples:
             number_of_samples = len(subs)
