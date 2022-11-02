@@ -161,3 +161,8 @@ cython_debug/
 
 # VSCode
 .vscode/
+
+dataset/*
+!dataset/README.md
+videos/*
+!videos/README.md
