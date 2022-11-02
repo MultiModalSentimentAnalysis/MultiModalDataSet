@@ -38,7 +38,13 @@ for i, movie_path in enumerate(movie_paths):
     if len(row) > 1:
         print(f"Error loading movie {movie_name}. Multiple entries.")
         continue
+
     row = row.iloc[0]
+    is_invalid = row["is_invalid"]
+    if is_invalid:
+        print(f"Error loading movie {movie_name}. Movie is invalid")
+        continue
+
     movie_id = row["id"]
 
     sub_path = VIDEO_DIR / movie_name / (movie_name + ".srt")
