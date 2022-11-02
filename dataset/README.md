@@ -7,7 +7,7 @@ dataset (This folder)
 │   README.md
 │
 └───movie_id0
-│   │   text.txt
+│   │   texts.txt
 │   │
 │   └───clips
 │       │   clip_0.mkv
@@ -15,7 +15,7 @@ dataset (This folder)
 │       │   ...
 │   
 └───movie_id1
-│   │   text.txt
+│   │   texts.txt
 │   │
 │   └───clips
 │       │   clip_0.mkv
