@@ -67,6 +67,8 @@ for i, movie_path in enumerate(movie_paths):
         number_of_samples = floor(
             duration / 60
         )  # number of samples ~ length of video in minutes
+        if len(subs) < number_of_samples:
+            number_of_samples = len(subs)
         step = floor(len(subs) / number_of_samples)
         sub_indexes = np.arange(number_of_samples) * step + 1
 
