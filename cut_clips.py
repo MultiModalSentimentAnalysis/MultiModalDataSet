@@ -13,6 +13,7 @@ from settings import DATA_DIR, VIDEO_DIR
 RE_ENCODE = True
 
 movies_df = pd.read_csv("movies.csv")
+error_file = open("subtitle-errors.log", "w")
 # movies_df["file_name"][movies_df["file_name"].str.endswith("'/")] = movies_df[
 #     "file_name"
 # ].apply(lambda x: x[:-2])
@@ -47,12 +48,14 @@ for i, movie_path in enumerate(movie_paths):
             continue
 
         movie_id = row["id"]
-
-        sub_path = VIDEO_DIR / movie_name / (movie_name + ".srt")
+        
+        sub_path = VIDEO_DIR / movie_name / (movie_name + "-opensubtitle.srt")
         try:
             subs = pysrt.open(sub_path)
         except:
             print(f"Error loading subtitle for {movie_name}")
+            error_file.write(movie_name)
+            error_file.write("\n")
             continue
 
         MOVIE_BASE_DIR = DATA_DIR / str(movie_id)
@@ -114,3 +117,4 @@ for i, movie_path in enumerate(movie_paths):
                 text_file.write(str(index) + "-" + text + "\n")
     except Exception as e:
         print(f"Error for movie path: {movie_path}:", e)
+error_file.close()
