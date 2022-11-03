@@ -9,13 +9,13 @@
       <Choice alias="0" value="Neutral"/>
       <Choice alias="1" value="Positive"/>
       <Choice alias="2" value="Very Positive"/>
-      <Choice alias="10" value="Not sure"/>
+      <Choice alias="10" value="bad" hotkey="b"/>
     </Choices>
 
 
-    <Choices name="is_bad" toName="text" choice="single">
-     	<Choice alias="0" value="good" selected="true" hotkey="g"/>
-    	<Choice alias="1" value="bad" hotkey="b"/>
+    <Choices name="sure" toName="text" choice="single">
+     	<Choice alias="1" value="sure" selected="true" hotkey="s"/>
+    	<Choice alias="0" value="not_sure" hotkey="n"/>
     </Choices>
     </View>  
 
