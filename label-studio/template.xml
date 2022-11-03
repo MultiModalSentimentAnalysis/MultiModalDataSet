@@ -2,15 +2,22 @@
     <Header name="text_only_to_show" value="$text"/>
     <Video name="video" value="$video"/>
 
-
+    <View style="display: flex;">
     <Choices name="choices" toName="text" choice="single">
       <Choice alias="-2" value="Very Negative"/>
       <Choice alias="-1" value="Negative"/>
       <Choice alias="0" value="Neutral"/>
       <Choice alias="1" value="Positive"/>
       <Choice alias="2" value="Very Positive"/>
+      <Choice alias="10" value="Not sure"/>
     </Choices>
-  
+
+
+    <Choices name="is_bad" toName="text" choice="single">
+     	<Choice alias="0" value="good" selected="true" hotkey="g"/>
+    	<Choice alias="1" value="bad" hotkey="b"/>
+    </Choices>
+    </View>  
 
     <View style="display: flex;">
       <Text name="movie_id" value="$movie_id" saveTextResult="yes"/>
