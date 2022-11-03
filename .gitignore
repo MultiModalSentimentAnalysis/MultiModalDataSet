@@ -166,3 +166,6 @@ dataset/*
 !dataset/README.md
 videos/*
 !videos/README.md
+
+# local files
+local_files/

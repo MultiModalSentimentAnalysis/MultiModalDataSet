@@ -1,6 +1,8 @@
+import sys
 import pandas as pd
 from pathlib import Path
 from glob import glob
+sys.path.append(str(Path(".").resolve()))
 from settings import DATA_DIR, LABELSTUDIO_DIR, BASE_DIR
 
 

@@ -1,11 +1,10 @@
 from asyncio import streams
 import struct, os
 import requests
+import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from glob import glob
-
-from settings import DATA_DIR, VIDEO_DIR
 
 API_KEY = "F9A7NgI3wmHGvPrix1Ub4j7SchTKjdLU"
 headers = {"Api-Key": API_KEY, "Content-Type": "application/json"}

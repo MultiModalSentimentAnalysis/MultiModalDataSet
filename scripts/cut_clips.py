@@ -1,19 +1,22 @@
 import os
+import sys
 import pysrt
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
 from glob import glob
 from math import floor
+from pathlib import Path
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip
 from moviepy.editor import VideoFileClip
+sys.path.append(str(Path(".").resolve()))
 from settings import DATA_DIR, VIDEO_DIR
 
 # Reencoding results in exact cuts, but it is slower
 RE_ENCODE = True
 
 movies_df = pd.read_csv("movies.csv")
-error_file = open("subtitle-errors.log", "w")
+error_file = open("logs/cutlip-subtitles-errors.log", "w")
 # movies_df["file_name"][movies_df["file_name"].str.endswith("'/")] = movies_df[
 #     "file_name"
 # ].apply(lambda x: x[:-2])
