@@ -44,5 +44,8 @@ for i, MOVIE_BASE_DIR in enumerate(movie_paths):
         )
 
 if generate_complete_input_file:
-    df = pd.concat(movie_dfs, ignore_index=True)
+    if len(movie_dfs) == 1:
+        df = movie_dfs
+    else:
+        df = pd.concat(movie_dfs, ignore_index=True)
     df.to_csv(LABELSTUDIO_DIR / "label_studio_input.csv", index=False)
