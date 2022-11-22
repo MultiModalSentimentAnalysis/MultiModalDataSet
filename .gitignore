@@ -169,3 +169,5 @@ videos/*
 
 # local files
 local_files/
+stats/
+labels/
