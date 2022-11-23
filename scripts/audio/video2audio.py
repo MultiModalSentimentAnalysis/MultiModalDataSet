@@ -1,7 +1,10 @@
+import sys
+import os
+import moviepy.editor as mp
+from pathlib import Path
+sys.path.append(str(Path(".").resolve()))
 from settings import DATA_DIR
 from glob import glob
-import moviepy.editor as mp
-import os
 from tqdm import tqdm
 
 

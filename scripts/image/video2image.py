@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(".").resolve()))
 from settings import DATA_DIR
 from glob import glob
 import cv2
